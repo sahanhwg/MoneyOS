@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affiliate Income Calculator — Internet Money OS</title>
+  <meta name="description" content="Calculate your affiliate marketing income potential. Estimate earnings from website traffic, conversion rates, commission rates, and average order values.">
+  <meta name="keywords" content="affiliate income calculator, affiliate marketing earnings, passive income calculator, affiliate revenue estimator">
+  <link rel="canonical" href="affiliate-revenue-calculator.html">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+  <script src="../assets/js/calculators.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" role="navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <div class="nav-logo-icon">💰</div>
+        <span>Internet Money OS</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="benchmarks.html" class="nav-link">Benchmarks</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" role="dialog">
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="calculators.html" class="mobile-nav-link">Calculators</a>
+    <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+    <a href="benchmarks.html" class="mobile-nav-link">Benchmarks</a>
+  </div>
+
+  <header class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="container">
+      <div class="page-header-content reveal">
+        <div style="display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); background: var(--bg-glass); border: 1px solid var(--bg-glass-border); border-radius: var(--radius-full); font-size: var(--text-sm); color: var(--color-primary); margin-bottom: var(--space-4);">
+          <span>🔗</span> Passive Income Tool
+        </div>
+        <h1 class="page-header-title">Affiliate Income Calculator</h1>
+        <p class="page-header-desc">Estimate your affiliate marketing income from website traffic, conversion rates, commissions, and order values. Plan your passive income strategy.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top: var(--space-8);">
+    <div class="container">
+      <div class="calc-layout">
+        <div class="calc-main reveal">
+          <h2 style="font-size: var(--text-xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-6);">Enter Your Metrics</h2>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Monthly Website Visitors</span>
+              <span class="calc-slider-value" id="af-visitors-display">10,000</span>
+            </div>
+            <input type="range" class="calc-slider" id="af-visitors" min="100" max="1000000" value="10000" step="100">
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Conversion Rate (%)</span>
+              <span class="calc-slider-value" id="af-conversion-display">2.5%</span>
+            </div>
+            <input type="range" class="calc-slider" id="af-conversion" min="0.1" max="10" value="2.5" step="0.1">
+            <p class="form-hint">Industry average: 1-3% for content sites, 3-5% for review sites</p>
+          </div>
+
+          <div class="grid-2" style="margin-top: var(--space-6);">
+            <div class="calc-slider-group">
+              <div class="calc-slider-label">
+                <span>Avg Commission ($)</span>
+                <span class="calc-slider-value" id="af-commission-display">$30</span>
+              </div>
+              <input type="range" class="calc-slider" id="af-commission" min="1" max="500" value="30" step="1">
+            </div>
+
+            <div class="calc-slider-group">
+              <div class="calc-slider-label">
+                <span>Avg Order Value ($)</span>
+                <span class="calc-slider-value" id="af-aov-display">$150</span>
+              </div>
+              <input type="range" class="calc-slider" id="af-aov" min="10" max="2000" value="150" step="10">
+            </div>
+          </div>
+
+          <div style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--border-color);">
+            <h3 style="font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-6);">Your Results</h3>
+
+            <div class="grid-2">
+              <div class="calc-result-box" style="background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);">
+                <div class="calc-result-label">Monthly Revenue</div>
+                <div class="calc-result-value" id="af-result-revenue">$0</div>
+                <div class="calc-result-sub">From affiliate commissions</div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+                <div style="background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); text-align: center;">
+                  <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">Conversions</div>
+                  <div style="font-size: var(--text-2xl); font-weight: 800; color: var(--text-primary); font-family: var(--font-mono);" id="af-result-conversions">0</div>
+                </div>
+                <div style="background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); text-align: center;">
+                  <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">Revenue/Visitor</div>
+                  <div style="font-size: var(--text-2xl); font-weight: 800; color: var(--text-primary); font-family: var(--font-mono);" id="af-result-pervisitor">$0</div>
+                </div>
+                <div style="background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); text-align: center; grid-column: span 2;">
+                  <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">Estimated Yearly</div>
+                  <div style="font-size: var(--text-3xl); font-weight: 800; color: var(--color-primary); font-family: var(--font-mono);" id="af-result-yearly">$0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: var(--space-8);">
+            <h3 style="font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-4);">Top Affiliate Programs by Commission</h3>
+            <div class="card" style="padding: var(--space-6);">
+              <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-4); margin-bottom: var(--space-4);">
+                <div style="font-size: var(--text-xs); font-weight: 700; color: var(--text-tertiary); text-transform: uppercase;">Program</div>
+                <div style="font-size: var(--text-xs); font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; text-align: center;">Commission</div>
+                <div style="font-size: var(--text-xs); font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; text-align: center;">Cookie</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-4); padding: var(--space-3) 0; border-top: 1px solid var(--border-color);">
+                <div style="font-weight: 600; color: var(--text-primary);">Shopify</div>
+                <div style="font-family: var(--font-mono); color: var(--text-secondary); text-align: center;">$150/sale</div>
+                <div style="font-family: var(--font-mono); color: var(--text-secondary); text-align: center;">30 days</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-4); padding: var(--space-3) 0; border-top: 1px solid var(--border-color);">
+                <div style="font-weight: 600; color: var(--text-primary);">Semrush</div>
+                <div style="font-family: var(--font-mono); color: var(--text-secondary); text-align: center;">$200/sale</div>
+                <div style="font-family: var(--font-mono); color: var(--text-secondary); text-align: center;">120 days</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-4); padding: var(--space-3) 0; border-top: 1px solid var(--border-color);">
+                <div style="font-weight: 600; color: var(--text-primary);">Bluehost</div>
+                <div style="font-family: var(--font-mono); color: var(--text-secondary); text-align: center;">$65/sale</div>
+                <div style="font-family: var(--font-mono); color: var(--text-secondary); text-align: center;">90 days</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-4); padding: var(--space-3) 0; border-top: 1px solid var(--border-color);">
+                <div style="font-weight: 600; color: var(--text-primary);">Amazon Associates</div>
+                <div style="font-family: var(--font-mono); color: var(--text-secondary); text-align: center;">1-10%</div>
+                <div style="font-family: var(--font-mono); color: var(--text-secondary); text-align: center;">24 hours</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-4); padding: var(--space-3) 0; border-top: 1px solid var(--border-color);">
+                <div style="font-weight: 600; color: var(--text-primary);">ConvertKit</div>
+                <div style="font-family: var(--font-mono); color: var(--text-secondary); text-align: center;">30% recurring</div>
+                <div style="font-family: var(--font-mono); color: var(--text-secondary); text-align: center;">90 days</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-sidebar">
+          <div class="calc-sidebar-card reveal reveal-delay-1">
+            <h4 class="calc-sidebar-title">💡 AI Insights</h4>
+            <div id="af-insights">
+              <div class="skeleton" style="height: 60px; margin-bottom: 12px;"></div>
+              <div class="skeleton" style="height: 60px; margin-bottom: 12px;"></div>
+            </div>
+          </div>
+
+          <div class="calc-sidebar-card reveal reveal-delay-2">
+            <h4 class="calc-sidebar-title">📊 Conversion Benchmarks</h4>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Review Sites</span>
+                <span class="benchmark-value">5.0%</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 100%; background: var(--gradient-hero);"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Comparison Sites</span>
+                <span class="benchmark-value">3.5%</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 70%; background: #8b5cf6;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Blog Content</span>
+                <span class="benchmark-value">2.0%</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 40%; background: #6366f1;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Social Media</span>
+                <span class="benchmark-value">1.2%</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 24%; background: #0ea5e9;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Email Marketing</span>
+                <span class="benchmark-value">4.0%</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 80%; background: #14b8a6;"></div></div>
+            </div>
+          </div>
+
+          <div class="calc-sidebar-card reveal reveal-delay-3">
+            <h4 class="calc-sidebar-title">🎯 Scaling Strategies</h4>
+            <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+              <div style="font-size: var(--text-sm); color: var(--text-secondary); padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-lg);">
+                <strong style="color: var(--text-primary);">1. SEO Content</strong><br>
+                Target "best [product]" and "[product] vs [product]" keywords for high buyer intent.
+              </div>
+              <div style="font-size: var(--text-sm); color: var(--text-secondary); padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-lg);">
+                <strong style="color: var(--text-primary);">2. Email Funnels</strong><br>
+                Build email lists around product categories. Email converts at 4% on average.
+              </div>
+              <div style="font-size: var(--text-sm); color: var(--text-secondary); padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-lg);">
+                <strong style="color: var(--text-primary);">3. Recurring Commissions</strong><br>
+                Promote SaaS tools with recurring commissions for passive monthly income.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p class="footer-copyright">© 2025 Internet Money OS. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benchmarks — Internet Money OS</title>
+  <meta name="description" content="Compare your metrics against industry benchmarks for YouTube CPM, TikTok earnings, creator tiers, and more. See where you stand.">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+  <script src="../assets/js/calculators.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" role="navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <div class="nav-logo-icon">💰</div>
+        <span>Internet Money OS</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="benchmarks.html" class="nav-link active">Benchmarks</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" role="dialog">
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="calculators.html" class="mobile-nav-link">Calculators</a>
+    <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+    <a href="benchmarks.html" class="mobile-nav-link">Benchmarks</a>
+  </div>
+
+  <header class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="container">
+      <div class="page-header-content reveal">
+        <h1 class="page-header-title">Industry Benchmarks</h1>
+        <p class="page-header-desc">Compare your performance against real-world data from thousands of creators and businesses.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top: var(--space-8);">
+    <div class="container">
+
+      <!-- YouTube CPM Benchmarks -->
+      <div style="margin-bottom: var(--space-16);">
+        <div class="reveal" style="margin-bottom: var(--space-8);">
+          <h2 style="font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-2);">YouTube CPM by Niche</h2>
+          <p style="color: var(--text-secondary);">Average CPM rates across content categories. Finance creators earn 5x more than entertainment creators.</p>
+        </div>
+
+        <div class="grid-2" style="align-items: start;">
+          <div class="card reveal reveal-delay-1" style="padding: var(--space-8);">
+            <h3 style="font-size: var(--text-lg); font-weight: 700; margin-bottom: var(--space-6); color: var(--text-primary);">CPM Comparison</h3>
+
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Finance</span>
+                <span class="benchmark-value">$25.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 100%; background: var(--gradient-hero);"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Real Estate</span>
+                <span class="benchmark-value">$20.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 80%; background: #8b5cf6;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Business</span>
+                <span class="benchmark-value">$18.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 72%; background: #6366f1;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Technology</span>
+                <span class="benchmark-value">$15.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 60%; background: #0ea5e9;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Health</span>
+                <span class="benchmark-value">$12.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 48%; background: #14b8a6;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Education</span>
+                <span class="benchmark-value">$10.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 40%; background: #f59e0b;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Travel</span>
+                <span class="benchmark-value">$8.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 32%; background: #f97316;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Gaming</span>
+                <span class="benchmark-value">$5.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 20%; background: #94a3b8;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Entertainment</span>
+                <span class="benchmark-value">$4.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 16%; background: #64748b;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Music</span>
+                <span class="benchmark-value">$3.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 12%; background: #475569;"></div></div>
+            </div>
+          </div>
+
+          <div class="card reveal reveal-delay-2" style="padding: var(--space-8);">
+            <h3 style="font-size: var(--text-lg); font-weight: 700; margin-bottom: var(--space-6); color: var(--text-primary);">CPM by Country</h3>
+
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">🇺🇸 United States</span>
+                <span class="benchmark-value">$12.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 100%; background: var(--gradient-hero);"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">🇨🇦 Canada</span>
+                <span class="benchmark-value">$10.80</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 90%; background: #6366f1;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">🇬🇧 United Kingdom</span>
+                <span class="benchmark-value">$10.20</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 85%; background: #8b5cf6;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">🇦🇺 Australia</span>
+                <span class="benchmark-value">$10.56</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 88%; background: #0ea5e9;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">🇩🇪 Germany</span>
+                <span class="benchmark-value">$8.40</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 70%; background: #14b8a6;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">🇫🇷 France</span>
+                <span class="benchmark-value">$7.80</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 65%; background: #f59e0b;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">🇧🇷 Brazil</span>
+                <span class="benchmark-value">$1.44</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 12%; background: #f97316;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">🇮🇳 India</span>
+                <span class="benchmark-value">$0.96</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 8%; background: #ef4444;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Creator Tiers -->
+      <div style="margin-bottom: var(--space-16);">
+        <div class="reveal" style="margin-bottom: var(--space-8);">
+          <h2 style="font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-2);">Creator Income Tiers</h2>
+          <p style="color: var(--text-secondary);">Average annual income by follower count and creator tier in the US market.</p>
+        </div>
+
+        <div class="grid-2" style="align-items: start;">
+          <div class="card reveal reveal-delay-1" style="padding: var(--space-8);">
+            <h3 style="font-size: var(--text-lg); font-weight: 700; margin-bottom: var(--space-6); color: var(--text-primary);">Annual Income by Tier</h3>
+
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Mega (1M+ followers)</span>
+                <span class="benchmark-value">$1,200,000</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 100%; background: var(--gradient-hero);"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Macro (250K-1M)</span>
+                <span class="benchmark-value">$350,000</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 29%; background: #8b5cf6;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Mid-Tier (50K-250K)</span>
+                <span class="benchmark-value">$120,000</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 10%; background: #6366f1;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Micro (10K-50K)</span>
+                <span class="benchmark-value">$45,000</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 4%; background: #0ea5e9;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Nano (1K-10K)</span>
+                <span class="benchmark-value">$15,000</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 1.5%; background: #14b8a6;"></div></div>
+            </div>
+          </div>
+
+          <div class="card reveal reveal-delay-2" style="padding: var(--space-8);">
+            <h3 style="font-size: var(--text-lg); font-weight: 700; margin-bottom: var(--space-6); color: var(--text-primary);">Key Insights</h3>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-5);">
+              <div class="insight-card info">
+                <div class="insight-title"><span>ℹ</span> Top 4% Earners</div>
+                <div class="insight-text">Only the top 4% of creators earn more than $100K/year. The median creator income is approximately $15,000 annually.</div>
+              </div>
+
+              <div class="insight-card success">
+                <div class="insight-title"><span>✓</span> Niche Matters Most</div>
+                <div class="insight-text">Finance creators earn 5x more per view than entertainment creators. Your niche is the #1 predictor of revenue potential.</div>
+              </div>
+
+              <div class="insight-card info">
+                <div class="insight-title"><span>ℹ</span> Diversification is Key</div>
+                <div class="insight-text">Top creators derive income from 4-6 sources: ads, sponsorships, affiliates, courses, merchandise, and consulting.</div>
+              </div>
+
+              <div class="insight-card warning">
+                <div class="insight-title"><span>⚠</span> Platform Dependency Risk</div>
+                <div class="insight-text">Creators earning 80%+ from a single platform are 3x more likely to experience income volatility.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TikTok Benchmarks -->
+      <div style="margin-bottom: var(--space-16);">
+        <div class="reveal" style="margin-bottom: var(--space-8);">
+          <h2 style="font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-2);">TikTok Earnings Benchmarks</h2>
+          <p style="color: var(--text-secondary);">Creator Rewards Program rates by content niche (per 1,000 views).</p>
+        </div>
+
+        <div class="card reveal" style="padding: var(--space-8);">
+          <div class="benchmark-item">
+            <div class="benchmark-header">
+              <span class="benchmark-label">Finance</span>
+              <span class="benchmark-value">$1.20</span>
+            </div>
+            <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 100%; background: var(--gradient-hero);"></div></div>
+          </div>
+          <div class="benchmark-item">
+            <div class="benchmark-header">
+              <span class="benchmark-label">Business</span>
+              <span class="benchmark-value">$1.00</span>
+            </div>
+            <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 83%; background: #8b5cf6;"></div></div>
+          </div>
+          <div class="benchmark-item">
+            <div class="benchmark-header">
+              <span class="benchmark-label">Technology</span>
+              <span class="benchmark-value">$0.85</span>
+            </div>
+            <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 71%; background: #6366f1;"></div></div>
+          </div>
+          <div class="benchmark-item">
+            <div class="benchmark-header">
+              <span class="benchmark-label">Education</span>
+              <span class="benchmark-value">$0.70</span>
+            </div>
+            <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 58%; background: #0ea5e9;"></div></div>
+          </div>
+          <div class="benchmark-item">
+            <div class="benchmark-header">
+              <span class="benchmark-label">Fitness</span>
+              <span class="benchmark-value">$0.65</span>
+            </div>
+            <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 54%; background: #14b8a6;"></div></div>
+          </div>
+          <div class="benchmark-item">
+            <div class="benchmark-header">
+              <span class="benchmark-label">Beauty</span>
+              <span class="benchmark-value">$0.50</span>
+            </div>
+            <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 42%; background: #f59e0b;"></div></div>
+          </div>
+          <div class="benchmark-item">
+            <div class="benchmark-header">
+              <span class="benchmark-label">Gaming</span>
+              <span class="benchmark-value">$0.45</span>
+            </div>
+            <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 38%; background: #f97316;"></div></div>
+          </div>
+          <div class="benchmark-item">
+            <div class="benchmark-header">
+              <span class="benchmark-label">Entertainment</span>
+              <span class="benchmark-value">$0.40</span>
+            </div>
+            <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 33%; background: #94a3b8;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Creator Economy Stats -->
+      <div>
+        <div class="reveal" style="margin-bottom: var(--space-8);">
+          <h2 style="font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-2);">Creator Economy at a Glance</h2>
+          <p style="color: var(--text-secondary);">Key statistics about the $250B+ creator economy in 2025.</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="dashboard-card reveal reveal-delay-1">
+            <div class="dashboard-card-header">
+              <span class="dashboard-card-title">Market Size (2025)</span>
+            </div>
+            <div class="dashboard-card-value">$254B</div>
+            <div class="dashboard-card-change up">↑ 22.5% CAGR</div>
+          </div>
+
+          <div class="dashboard-card reveal reveal-delay-2">
+            <div class="dashboard-card-header">
+              <span class="dashboard-card-title">Projected (2030)</span>
+            </div>
+            <div class="dashboard-card-value">$528B</div>
+            <div class="dashboard-card-change up">↑ 2x Growth</div>
+          </div>
+
+          <div class="dashboard-card reveal reveal-delay-3">
+            <div class="dashboard-card-header">
+              <span class="dashboard-card-title">North America Share</span>
+            </div>
+            <div class="dashboard-card-value">40%</div>
+            <div class="dashboard-card-change up">↑ Largest Market</div>
+          </div>
+
+          <div class="dashboard-card reveal reveal-delay-1">
+            <div class="dashboard-card-header">
+              <span class="dashboard-card-title">Avg Creator Income</span>
+            </div>
+            <div class="dashboard-card-value">$45K</div>
+            <div class="dashboard-card-change">📊 US Annual</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p class="footer-copyright">© 2025 Internet Money OS. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

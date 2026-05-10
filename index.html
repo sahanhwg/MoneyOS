@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internet Money OS — Understand What Your Online Business Is Truly Worth</title>
+  <meta name="description" content="The ultimate financial intelligence platform for creators, freelancers, and online entrepreneurs. Calculate YouTube CPM, TikTok earnings, sponsorship rates, SaaS MRR, and more.">
+  <meta name="keywords" content="YouTube CPM calculator, TikTok earnings calculator, creator revenue, sponsorship estimator, SaaS MRR calculator, online income, freelancer rate calculator">
+  <meta property="og:title" content="Internet Money OS — Financial Intelligence for Creators">
+  <meta property="og:description" content="Calculate, forecast, and benchmark your online income with precision.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/calculators.js" defer></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">💰</div>
+        <span>Internet Money OS</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="pages/calculators.html" class="nav-link">Calculators</a>
+        <a href="pages/dashboard.html" class="nav-link">Dashboard</a>
+        <a href="pages/benchmarks.html" class="nav-link">Benchmarks</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <a href="pages/calculators.html" class="nav-btn nav-btn-primary">Get Started</a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" role="dialog" aria-label="Mobile menu">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="pages/calculators.html" class="mobile-nav-link">Calculators</a>
+    <a href="pages/dashboard.html" class="mobile-nav-link">Dashboard</a>
+    <a href="pages/benchmarks.html" class="mobile-nav-link">Benchmarks</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-bg">
+      <div class="hero-bg-gradient"></div>
+      <div class="hero-bg-orb hero-bg-orb-1"></div>
+      <div class="hero-bg-orb hero-bg-orb-2"></div>
+      <div class="hero-bg-orb hero-bg-orb-3"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Trusted by 50,000+ creators & entrepreneurs
+      </div>
+
+      <h1 class="hero-title">
+        Understand what your<br>
+        <span class="hero-title-gradient">online business</span><br>
+        is truly worth.
+      </h1>
+
+      <p class="hero-subtitle">
+        The financial intelligence platform for creators, freelancers, and online entrepreneurs. 
+        Calculate revenue, benchmark performance, and forecast growth — all in one place.
+      </p>
+
+      <div class="hero-cta">
+        <a href="pages/calculators.html" class="btn btn-lg btn-primary">
+          Explore Calculators →
+        </a>
+        <a href="pages/dashboard.html" class="btn btn-lg btn-secondary">
+          View Dashboard
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">
+            <span class="counter" data-target="10" data-suffix="+" data-duration="2000">0</span>
+          </div>
+          <div class="hero-stat-label">Smart Calculators</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">
+            <span class="counter" data-target="50" data-suffix="K+" data-duration="2000">0</span>
+          </div>
+          <div class="hero-stat-label">Active Users</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">
+            <span class="counter" data-target="2.1" data-prefix="$" data-suffix="B+" data-decimals="1" data-duration="2000">0</span>
+          </div>
+          <div class="hero-stat-label">Revenue Analyzed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">
+            <span class="counter" data-target="99.9" data-suffix="%" data-decimals="1" data-duration="2000">0</span>
+          </div>
+          <div class="hero-stat-label">Uptime</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Preview Section -->
+  <section class="section" aria-label="Calculator preview">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">⚡ Try It Now</div>
+        <h2 class="section-title">Instant Revenue Estimation</h2>
+        <p class="section-description">
+          Get a quick estimate of your potential earnings. Adjust the sliders to see real-time projections.
+        </p>
+      </div>
+
+      <div class="grid-2" style="align-items: start;">
+        <div class="calc-preview reveal reveal-delay-1">
+          <div class="calc-preview-header">
+            <div class="calc-preview-title">YouTube Revenue Estimator</div>
+            <span class="calc-preview-badge">Live</span>
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Monthly Views</span>
+              <span class="calc-slider-value" id="preview-views-display">100,000</span>
+            </div>
+            <input type="range" class="calc-slider" id="preview-views" min="1000" max="10000000" value="100000" step="1000">
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>CPM Rate</span>
+              <span class="calc-slider-value" id="preview-cpm-display">$7.50</span>
+            </div>
+            <input type="range" class="calc-slider" id="preview-cpm" min="1" max="50" value="7.5" step="0.5">
+          </div>
+
+          <div class="calc-result-box" style="margin-top: var(--space-6);">
+            <div class="calc-result-label">Estimated Monthly Revenue</div>
+            <div class="calc-result-value" id="preview-result">$412.50</div>
+            <div class="calc-result-sub">Based on 55% creator revenue share</div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div style="margin-bottom: var(--space-6);">
+            <h3 style="font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-4);">
+              Why creators trust our calculations
+            </h3>
+            <p style="color: var(--text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-6);">
+              Our algorithms are built on real-world data from thousands of creators across YouTube, TikTok, 
+              Instagram, and other platforms. We factor in niche premiums, country multipliers, and platform-specific 
+              revenue splits to give you the most accurate estimates possible.
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+              <div style="width: 40px; height: 40px; border-radius: var(--radius-lg); background: var(--color-primary-100); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-primary); font-size: var(--text-lg);">📊</div>
+              <div>
+                <div style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-1);">Real-Time Data</div>
+                <div style="font-size: var(--text-sm); color: var(--text-secondary);">Updated monthly with the latest platform rates and industry benchmarks.</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+              <div style="width: 40px; height: 40px; border-radius: var(--radius-lg); background: rgba(20, 184, 166, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-accent-teal); font-size: var(--text-lg);">🎯</div>
+              <div>
+                <div style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-1);">Niche-Specific</div>
+                <div style="font-size: var(--text-sm); color: var(--text-secondary);">Finance creators earn 5x more than entertainment creators. We account for that.</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+              <div style="width: 40px; height: 40px; border-radius: var(--radius-lg); background: rgba(245, 158, 11, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-accent-amber); font-size: var(--text-lg);">🌍</div>
+              <div>
+                <div style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-1);">Geo-Adjusted</div>
+                <div style="font-size: var(--text-sm); color: var(--text-secondary);">US audiences pay 10-15x more than emerging markets. Our calculators know the difference.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section section-alt" aria-label="Features">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">✨ Features</div>
+        <h2 class="section-title">Everything you need to understand your online income</h2>
+        <p class="section-description">
+          From CPM calculations to SaaS forecasting, we've built the most comprehensive creator finance toolkit on the internet.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="card-icon card-icon-primary">🧮</div>
+          <h3 class="card-title">10+ Smart Calculators</h3>
+          <p class="card-description">YouTube CPM, TikTok earnings, sponsorship rates, affiliate revenue, SaaS MRR, and more — each with real-time calculations and intelligent insights.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="card-icon card-icon-teal">📈</div>
+          <h3 class="card-title">AI-Powered Insights</h3>
+          <p class="card-description">After every calculation, get personalized recommendations based on industry benchmarks, niche comparisons, and growth opportunities.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="card-icon card-icon-amber">🎯</div>
+          <h3 class="card-title">Benchmark Engine</h3>
+          <p class="card-description">Compare your metrics against industry averages, top creators in your niche, and country-specific benchmarks to understand where you stand.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="card-icon card-icon-rose">🔮</div>
+          <h3 class="card-title">Forecast Simulations</h3>
+          <p class="card-description">Project your revenue 12 months ahead with conservative, realistic, and optimistic scenarios. Plan your growth with confidence.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="card-icon card-icon-emerald">📊</div>
+          <h3 class="card-title">Visual Analytics</h3>
+          <p class="card-description">Beautiful interactive charts powered by Chart.js. See your revenue breakdowns, growth curves, and benchmark comparisons at a glance.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="card-icon card-icon-sky">💾</div>
+          <h3 class="card-title">Saved Calculations</h3>
+          <p class="card-description">Your calculations are automatically saved to your personal dashboard. Track changes over time and build your financial history.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculators Grid Section -->
+  <section class="section" aria-label="Calculators">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">🧮 Calculators</div>
+        <h2 class="section-title">Choose your calculator</h2>
+        <p class="section-description">
+          Each calculator is designed with real-world data, intelligent insights, and beautiful visualizations.
+        </p>
+      </div>
+
+      <div class="calculator-grid">
+        <a href="pages/youtube-cpm-calculator.html" class="calculator-card reveal reveal-delay-1">
+          <div class="calculator-card-header">
+            <div class="calculator-card-icon card-icon-primary">▶️</div>
+            <div>
+              <div class="calculator-card-title">YouTube CPM</div>
+            </div>
+          </div>
+          <p class="calculator-card-desc">Calculate your YouTube ad revenue based on views, CPM rate, niche, and audience country.</p>
+          <div class="calculator-card-meta">
+            <span>⚡ Real-time</span>
+            <span>📊 Charts</span>
+            <span>🎯 Insights</span>
+          </div>
+        </a>
+
+        <a href="pages/youtube-rpm-calculator.html" class="calculator-card reveal reveal-delay-2">
+          <div class="calculator-card-header">
+            <div class="calculator-card-icon card-icon-primary">📺</div>
+            <div>
+              <div class="calculator-card-title">YouTube RPM</div>
+            </div>
+          </div>
+          <p class="calculator-card-desc">Determine your Revenue Per Mille and estimate monthly and yearly earnings from your channel.</p>
+          <div class="calculator-card-meta">
+            <span>⚡ Real-time</span>
+            <span>📊 Charts</span>
+            <span>🎯 Insights</span>
+          </div>
+        </a>
+
+        <a href="pages/tiktok-money-calculator.html" class="calculator-card reveal reveal-delay-3">
+          <div class="calculator-card-header">
+            <div class="calculator-card-icon card-icon-rose">🎵</div>
+            <div>
+              <div class="calculator-card-title">TikTok Earnings</div>
+            </div>
+          </div>
+          <p class="calculator-card-desc">Estimate your TikTok Creator Rewards earnings with view counts, program type, and niche multipliers.</p>
+          <div class="calculator-card-meta">
+            <span>⚡ Real-time</span>
+            <span>📊 Charts</span>
+            <span>🎯 Insights</span>
+          </div>
+        </a>
+
+        <a href="pages/sponsorship-estimator.html" class="calculator-card reveal reveal-delay-1">
+          <div class="calculator-card-header">
+            <div class="calculator-card-icon card-icon-amber">🤝</div>
+            <div>
+              <div class="calculator-card-title">Sponsorship Estimator</div>
+            </div>
+          </div>
+          <p class="calculator-card-desc">Calculate how much you should charge for sponsored posts based on followers, engagement, and niche.</p>
+          <div class="calculator-card-meta">
+            <span>⚡ Real-time</span>
+            <span>📊 Charts</span>
+            <span>🎯 Insights</span>
+          </div>
+        </a>
+
+        <a href="pages/affiliate-revenue-calculator.html" class="calculator-card reveal reveal-delay-2">
+          <div class="calculator-card-header">
+            <div class="calculator-card-icon card-icon-emerald">🔗</div>
+            <div>
+              <div class="calculator-card-title">Affiliate Revenue</div>
+            </div>
+          </div>
+          <p class="calculator-card-desc">Project your affiliate marketing income based on traffic, conversion rate, commission, and order value.</p>
+          <div class="calculator-card-meta">
+            <span>⚡ Real-time</span>
+            <span>📊 Charts</span>
+            <span>🎯 Insights</span>
+          </div>
+        </a>
+
+        <a href="pages/roi-calculator.html" class="calculator-card reveal reveal-delay-3">
+          <div class="calculator-card-header">
+            <div class="calculator-card-icon card-icon-teal">📈</div>
+            <div>
+              <div class="calculator-card-title">ROI Calculator</div>
+            </div>
+          </div>
+          <p class="calculator-card-desc">Measure your return on investment for marketing campaigns, product launches, and business decisions.</p>
+          <div class="calculator-card-meta">
+            <span>⚡ Real-time</span>
+            <span>📊 Charts</span>
+            <span>🎯 Insights</span>
+          </div>
+        </a>
+
+        <a href="pages/saas-mrr-calculator.html" class="calculator-card reveal reveal-delay-1">
+          <div class="calculator-card-header">
+            <div class="calculator-card-icon card-icon-sky">☁️</div>
+            <div>
+              <div class="calculator-card-title">SaaS MRR</div>
+            </div>
+          </div>
+          <p class="calculator-card-desc">Forecast your SaaS monthly recurring revenue, ARR, churn impact, and customer lifetime value.</p>
+          <div class="calculator-card-meta">
+            <span>⚡ Real-time</span>
+            <span>📊 Charts</span>
+            <span>🎯 Insights</span>
+          </div>
+        </a>
+
+        <a href="pages/freelance-rate-calculator.html" class="calculator-card reveal reveal-delay-2">
+          <div class="calculator-card-header">
+            <div class="calculator-card-icon card-icon-primary">💼</div>
+            <div>
+              <div class="calculator-card-title">Freelance Rate</div>
+            </div>
+          </div>
+          <p class="calculator-card-desc">Calculate your ideal hourly, daily, and monthly freelance rates to hit your annual income goals.</p>
+          <div class="calculator-card-meta">
+            <span>⚡ Real-time</span>
+            <span>📊 Charts</span>
+            <span>🎯 Insights</span>
+          </div>
+        </a>
+
+        <a href="pages/shopify-profit-calculator.html" class="calculator-card reveal reveal-delay-3">
+          <div class="calculator-card-header">
+            <div class="calculator-card-icon card-icon-emerald">🛒</div>
+            <div>
+              <div class="calculator-card-title">Shopify Profit</div>
+            </div>
+          </div>
+          <p class="calculator-card-desc">Analyze your Shopify store profitability including COGS, ad spend, transaction fees, and plan costs.</p>
+          <div class="calculator-card-meta">
+            <span>⚡ Real-time</span>
+            <span>📊 Charts</span>
+            <span>🎯 Insights</span>
+          </div>
+        </a>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-12);">
+        <a href="pages/calculators.html" class="btn btn-lg btn-primary">
+          View All Calculators →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benchmark Preview Section -->
+  <section class="section section-alt" aria-label="Benchmarks">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">📊 Benchmarks</div>
+        <h2 class="section-title">How do you compare?</h2>
+        <p class="section-description">
+          See where you stand against industry averages, top performers, and creators in your niche.
+        </p>
+      </div>
+
+      <div class="grid-2" style="align-items: center;">
+        <div class="reveal reveal-delay-1">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-2xl); padding: var(--space-8);">
+            <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: var(--space-6); color: var(--text-primary);">YouTube CPM by Niche</h3>
+
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Finance</span>
+                <span class="benchmark-value">$25.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 100%; background: var(--gradient-hero);"></div></div>
+            </div>
+
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Real Estate</span>
+                <span class="benchmark-value">$20.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 80%; background: #8b5cf6;"></div></div>
+            </div>
+
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Business</span>
+                <span class="benchmark-value">$18.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 72%; background: #6366f1;"></div></div>
+            </div>
+
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Technology</span>
+                <span class="benchmark-value">$15.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 60%; background: #0ea5e9;"></div></div>
+            </div>
+
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Gaming</span>
+                <span class="benchmark-value">$5.00</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 20%; background: #94a3b8;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <h3 style="font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-4);">
+            Know your worth in the creator economy
+          </h3>
+          <p style="color: var(--text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-6);">
+            The creator economy is valued at over <strong style="color: var(--text-primary);">$254 billion</strong> in 2025, 
+            but earnings vary wildly. A finance creator with 100K views can earn more than a gaming creator with 2 million views.
+          </p>
+          <p style="color: var(--text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-6);">
+            Our benchmark engine analyzes data from thousands of creators to show you exactly where you stand — 
+            by niche, by country, by audience size, and by engagement rate.
+          </p>
+
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-8);">
+            <span style="padding: var(--space-2) var(--space-4); background: var(--bg-tertiary); border-radius: var(--radius-full); font-size: var(--text-sm); color: var(--text-secondary);">🇺🇸 USA</span>
+            <span style="padding: var(--space-2) var(--space-4); background: var(--bg-tertiary); border-radius: var(--radius-full); font-size: var(--text-sm); color: var(--text-secondary);">🇬🇧 UK</span>
+            <span style="padding: var(--space-2) var(--space-4); background: var(--bg-tertiary); border-radius: var(--radius-full); font-size: var(--text-sm); color: var(--text-secondary);">🇨🇦 Canada</span>
+            <span style="padding: var(--space-2) var(--space-4); background: var(--bg-tertiary); border-radius: var(--radius-full); font-size: var(--text-sm); color: var(--text-secondary);">🇦🇺 Australia</span>
+          </div>
+
+          <a href="pages/benchmarks.html" class="btn btn-primary">
+            Explore Benchmarks →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section" aria-label="Testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">💬 Testimonials</div>
+        <h2 class="section-title">Loved by creators worldwide</h2>
+        <p class="section-description">
+          See what entrepreneurs, creators, and freelancers are saying about Internet Money OS.
+        </p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"This tool helped me realize I was undercharging for sponsorships by 40%. I used the sponsorship estimator to renegotiate my rates and immediately increased my monthly income by $3,200."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SM</div>
+            <div>
+              <div class="testimonial-name">Sarah Mitchell</div>
+              <div class="testimonial-role">Finance Creator, 180K followers</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The SaaS MRR calculator with churn projections was a game-changer. I could finally show investors realistic growth scenarios and secured my seed round."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JC</div>
+            <div>
+              <div class="testimonial-name">James Chen</div>
+              <div class="testimonial-role">SaaS Founder, $45K MRR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"As a freelance designer, I never knew what to charge. The freelance rate calculator gave me confidence to raise my hourly rate from $65 to $120. My clients didn't even blink."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AP</div>
+            <div>
+              <div class="testimonial-name">Alex Park</div>
+              <div class="testimonial-role">UI/UX Designer, Freelance</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I run a Shopify store doing $80K/month. The profit calculator revealed my real margins were only 12% because of hidden transaction fees. Now I'm at 28% after optimizing."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MK</div>
+            <div>
+              <div class="testimonial-name">Maria Kim</div>
+              <div class="testimonial-role">E-commerce Owner, 3 Stores</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The TikTok earnings calculator was surprisingly accurate. It estimated $780 for a video that ended up making $823. The niche multiplier feature is brilliant."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RJ</div>
+            <div>
+              <div class="testimonial-name">Ryan Johnson</div>
+              <div class="testimonial-role">TikTok Creator, 420K followers</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I use the dashboard to track all my income streams in one place. Being able to see my YouTube, affiliate, and sponsorship revenue together changed how I plan my content strategy."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">EW</div>
+            <div>
+              <div class="testimonial-name">Emma Williams</div>
+              <div class="testimonial-role">Multi-Platform Creator</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section" aria-label="Call to action">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2 class="cta-title">Ready to understand your true earning potential?</h2>
+        <p class="cta-description">
+          Join 50,000+ creators and entrepreneurs who use Internet Money OS to make smarter financial decisions.
+        </p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="pages/calculators.html" class="btn btn-lg btn-primary">
+            Start Calculating →
+          </a>
+          <a href="pages/dashboard.html" class="btn btn-lg btn-secondary">
+            View Dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="nav-logo-icon">💰</div>
+            <span>Internet Money OS</span>
+          </div>
+          <p class="footer-description">
+            The financial intelligence platform for the creator economy. Calculate, benchmark, and forecast your online income with precision.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="footer-social-link" aria-label="YouTube">▶</a>
+            <a href="#" class="footer-social-link" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-column-title">Calculators</h4>
+          <a href="pages/youtube-cpm-calculator.html" class="footer-link">YouTube CPM</a>
+          <a href="pages/youtube-rpm-calculator.html" class="footer-link">YouTube RPM</a>
+          <a href="pages/tiktok-money-calculator.html" class="footer-link">TikTok Earnings</a>
+          <a href="pages/sponsorship-estimator.html" class="footer-link">Sponsorship Estimator</a>
+          <a href="pages/affiliate-revenue-calculator.html" class="footer-link">Affiliate Revenue</a>
+        </div>
+
+        <div>
+          <h4 class="footer-column-title">Business</h4>
+          <a href="pages/roi-calculator.html" class="footer-link">ROI Calculator</a>
+          <a href="pages/saas-mrr-calculator.html" class="footer-link">SaaS MRR</a>
+          <a href="pages/freelance-rate-calculator.html" class="footer-link">Freelance Rate</a>
+          <a href="pages/shopify-profit-calculator.html" class="footer-link">Shopify Profit</a>
+          <a href="pages/break-even-calculator.html" class="footer-link">Break-Even</a>
+        </div>
+
+        <div>
+          <h4 class="footer-column-title">Resources</h4>
+          <a href="pages/dashboard.html" class="footer-link">Dashboard</a>
+          <a href="pages/benchmarks.html" class="footer-link">Benchmarks</a>
+          <a href="pages/calculators.html" class="footer-link">All Calculators</a>
+          <a href="#" class="footer-link">Blog</a>
+          <a href="#" class="footer-link">API</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 Internet Money OS. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Preview Calculator Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const viewsSlider = document.getElementById('preview-views');
+      const cpmSlider = document.getElementById('preview-cpm');
+      const viewsDisplay = document.getElementById('preview-views-display');
+      const cpmDisplay = document.getElementById('preview-cpm-display');
+      const resultEl = document.getElementById('preview-result');
+
+      if (!viewsSlider) return;
+
+      function formatNum(n) {
+        return parseInt(n).toLocaleString();
+      }
+
+      function update() {
+        const views = parseInt(viewsSlider.value);
+        const cpm = parseFloat(cpmSlider.value);
+        const revenue = (views / 1000) * cpm * 0.55;
+
+        viewsDisplay.textContent = formatNum(views);
+        cpmDisplay.textContent = '$' + cpm.toFixed(2);
+        resultEl.textContent = '$' + revenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      viewsSlider.addEventListener('input', update);
+      cpmSlider.addEventListener('input', update);
+      update();
+    });
+  </script>
+
+</body>
+</html>

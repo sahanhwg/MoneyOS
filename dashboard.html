@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Internet Money OS</title>
+  <meta name="description" content="Your personal financial intelligence dashboard. Track saved calculations, view trends, and monitor your online income metrics.">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+  <script src="../assets/js/calculators.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" role="navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <div class="nav-logo-icon">💰</div>
+        <span>Internet Money OS</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="benchmarks.html" class="nav-link">Benchmarks</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" role="dialog">
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="calculators.html" class="mobile-nav-link">Calculators</a>
+    <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+    <a href="benchmarks.html" class="mobile-nav-link">Benchmarks</a>
+  </div>
+
+  <header class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="container">
+      <div class="page-header-content reveal">
+        <h1 class="page-header-title">Your Dashboard</h1>
+        <p class="page-header-desc">Track your calculations, monitor trends, and build your financial intelligence.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top: var(--space-8);">
+    <div class="container">
+      <!-- Stats Row -->
+      <div class="grid-4" style="margin-bottom: var(--space-8);">
+        <div class="dashboard-card reveal reveal-delay-1">
+          <div class="dashboard-card-header">
+            <span class="dashboard-card-title">Total Calculations</span>
+            <span style="font-size: 20px;">🧮</span>
+          </div>
+          <div class="dashboard-card-value" id="dash-total-calc">0</div>
+          <div class="dashboard-card-change up">↑ All time</div>
+        </div>
+
+        <div class="dashboard-card reveal reveal-delay-2">
+          <div class="dashboard-card-header">
+            <span class="dashboard-card-title">Tools Used</span>
+            <span style="font-size: 20px;">🛠️</span>
+          </div>
+          <div class="dashboard-card-value" id="dash-unique-tools">0</div>
+          <div class="dashboard-card-change up">↑ Diverse</div>
+        </div>
+
+        <div class="dashboard-card reveal reveal-delay-3">
+          <div class="dashboard-card-header">
+            <span class="dashboard-card-title">Last Calculation</span>
+            <span style="font-size: 20px;">⏱️</span>
+          </div>
+          <div class="dashboard-card-value" id="dash-last-calc" style="font-size: var(--text-lg);">—</div>
+          <div class="dashboard-card-change" id="dash-last-time" style="color: var(--text-tertiary);">—</div>
+        </div>
+
+        <div class="dashboard-card reveal reveal-delay-1">
+          <div class="dashboard-card-header">
+            <span class="dashboard-card-title">Session</span>
+            <span style="font-size: 20px;">📊</span>
+          </div>
+          <div class="dashboard-card-value" id="dash-session" style="font-size: var(--text-lg);">Active</div>
+          <div class="dashboard-card-change up">● Live</div>
+        </div>
+      </div>
+
+      <!-- Charts & Activity -->
+      <div class="grid-2" style="align-items: start;">
+        <div class="dashboard-card reveal reveal-delay-2">
+          <div class="dashboard-card-header">
+            <span class="dashboard-card-title">Calculator Usage</span>
+          </div>
+          <div class="chart-container">
+            <canvas id="dash-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="dashboard-card reveal reveal-delay-3">
+          <div class="dashboard-card-header">
+            <span class="dashboard-card-title">Recent Activity</span>
+          </div>
+          <div id="dash-activity" style="max-height: 300px; overflow-y: auto;">
+            <p style="color: var(--text-tertiary); text-align: center; padding: var(--space-8);">
+              No calculations yet. Start using our calculators to see your activity here!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div style="margin-top: var(--space-12);">
+        <div class="reveal" style="margin-bottom: var(--space-6);">
+          <h2 style="font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary);">Quick Actions</h2>
+          <p style="color: var(--text-secondary);">Jump to your most-used calculators.</p>
+        </div>
+
+        <div class="calculator-grid">
+          <a href="youtube-cpm-calculator.html" class="calculator-card reveal reveal-delay-1">
+            <div class="calculator-card-header">
+              <div class="calculator-card-icon card-icon-primary">▶️</div>
+              <div><div class="calculator-card-title">YouTube CPM</div></div>
+            </div>
+          </a>
+          <a href="tiktok-money-calculator.html" class="calculator-card reveal reveal-delay-2">
+            <div class="calculator-card-header">
+              <div class="calculator-card-icon card-icon-rose">🎵</div>
+              <div><div class="calculator-card-title">TikTok Earnings</div></div>
+            </div>
+          </a>
+          <a href="sponsorship-estimator.html" class="calculator-card reveal reveal-delay-3">
+            <div class="calculator-card-header">
+              <div class="calculator-card-icon card-icon-amber">🤝</div>
+              <div><div class="calculator-card-title">Sponsorship Estimator</div></div>
+            </div>
+          </a>
+          <a href="saas-mrr-calculator.html" class="calculator-card reveal reveal-delay-1">
+            <div class="calculator-card-header">
+              <div class="calculator-card-icon card-icon-sky">☁️</div>
+              <div><div class="calculator-card-title">SaaS MRR</div></div>
+            </div>
+          </a>
+          <a href="shopify-profit-calculator.html" class="calculator-card reveal reveal-delay-2">
+            <div class="calculator-card-header">
+              <div class="calculator-card-icon card-icon-emerald">🛒</div>
+              <div><div class="calculator-card-title">Shopify Profit</div></div>
+            </div>
+          </a>
+          <a href="freelance-rate-calculator.html" class="calculator-card reveal reveal-delay-3">
+            <div class="calculator-card-header">
+              <div class="calculator-card-icon card-icon-primary">💼</div>
+              <div><div class="calculator-card-title">Freelance Rate</div></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p class="footer-copyright">© 2025 Internet Money OS. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "youtube_cpm": {
+    "niches": [
+      { "name": "Finance", "cpm": 25.0, "rpm": 13.75 },
+      { "name": "Real Estate", "cpm": 20.0, "rpm": 11.0 },
+      { "name": "Business", "cpm": 18.0, "rpm": 9.9 },
+      { "name": "Technology", "cpm": 15.0, "rpm": 8.25 },
+      { "name": "Health", "cpm": 12.0, "rpm": 6.6 },
+      { "name": "Education", "cpm": 10.0, "rpm": 5.5 },
+      { "name": "Travel", "cpm": 8.0, "rpm": 4.4 },
+      { "name": "Gaming", "cpm": 5.0, "rpm": 2.75 },
+      { "name": "Entertainment", "cpm": 4.0, "rpm": 2.2 },
+      { "name": "Music", "cpm": 3.0, "rpm": 1.65 }
+    ],
+    "countries": {
+      "usa": { "multiplier": 1.0, "avg_cpm": 12.0 },
+      "uk": { "multiplier": 0.85, "avg_cpm": 10.2 },
+      "canada": { "multiplier": 0.9, "avg_cpm": 10.8 },
+      "australia": { "multiplier": 0.88, "avg_cpm": 10.56 },
+      "germany": { "multiplier": 0.7, "avg_cpm": 8.4 },
+      "france": { "multiplier": 0.65, "avg_cpm": 7.8 },
+      "india": { "multiplier": 0.08, "avg_cpm": 0.96 },
+      "brazil": { "multiplier": 0.12, "avg_cpm": 1.44 }
+    }
+  },
+  "tiktok": {
+    "programs": {
+      "creator_fund": { "min_rpm": 0.02, "max_rpm": 0.04 },
+      "creator_rewards": { "min_rpm": 0.40, "max_rpm": 1.00 }
+    },
+    "niches": [
+      { "name": "Finance", "multiplier": 1.8 },
+      { "name": "Business", "multiplier": 1.5 },
+      { "name": "Education", "multiplier": 1.3 },
+      { "name": "Technology", "multiplier": 1.4 },
+      { "name": "Beauty", "multiplier": 1.0 },
+      { "name": "Fitness", "multiplier": 1.1 },
+      { "name": "Gaming", "multiplier": 0.9 },
+      { "name": "Entertainment", "multiplier": 0.8 }
+    ]
+  },
+  "sponsorship_tiers": {
+    "nano": { "followers_min": 1000, "followers_max": 10000, "rate_min": 100, "rate_max": 500 },
+    "micro": { "followers_min": 10000, "followers_max": 50000, "rate_min": 500, "rate_max": 2000 },
+    "mid": { "followers_min": 50000, "followers_max": 250000, "rate_min": 2000, "rate_max": 10000 },
+    "macro": { "followers_min": 250000, "followers_max": 1000000, "rate_min": 10000, "rate_max": 50000 },
+    "mega": { "followers_min": 1000000, "followers_max": 999999999, "rate_min": 50000, "rate_max": 250000 }
+  },
+  "creator_economy": {
+    "market_size_2025": 254000000000,
+    "market_size_2030": 528000000000,
+    "cagr": 22.5,
+    "north_america_share": 0.40,
+    "avg_creator_income": 45000,
+    "top_earners_percentile": 0.04
+  }
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI Calculator — Internet Money OS</title>
+  <meta name="description" content="Calculate your return on investment for marketing campaigns, product launches, and business decisions. Measure profit, ROI percentage, and payback period.">
+  <meta name="keywords" content="ROI calculator, return on investment, marketing ROI, business profit calculator">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+  <script src="../assets/js/calculators.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" role="navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <div class="nav-logo-icon">💰</div>
+        <span>Internet Money OS</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="benchmarks.html" class="nav-link">Benchmarks</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" role="dialog">
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="calculators.html" class="mobile-nav-link">Calculators</a>
+    <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+    <a href="benchmarks.html" class="mobile-nav-link">Benchmarks</a>
+  </div>
+
+  <header class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="container">
+      <div class="page-header-content reveal">
+        <div style="display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); background: var(--bg-glass); border: 1px solid var(--bg-glass-border); border-radius: var(--radius-full); font-size: var(--text-sm); color: var(--color-primary); margin-bottom: var(--space-4);">
+          <span>📈</span> Business Analytics Tool
+        </div>
+        <h1 class="page-header-title">ROI Calculator</h1>
+        <p class="page-header-desc">Measure your return on investment for any business decision. Calculate profit, ROI percentage, multiplier, and yearly projections.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top: var(--space-8);">
+    <div class="container">
+      <div class="calc-layout">
+        <div class="calc-main reveal">
+          <h2 style="font-size: var(--text-xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-6);">Enter Your Metrics</h2>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Investment Amount ($)</span>
+              <span class="calc-slider-value" id="roi-investment-display">$5,000</span>
+            </div>
+            <input type="range" class="calc-slider" id="roi-investment" min="100" max="500000" value="5000" step="100">
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Revenue Generated ($)</span>
+              <span class="calc-slider-value" id="roi-revenue-display">$8,000</span>
+            </div>
+            <input type="range" class="calc-slider" id="roi-revenue" min="100" max="1000000" value="8000" step="100">
+          </div>
+
+          <div class="form-group" style="margin-top: var(--space-6);">
+            <label class="form-label">Timeframe</label>
+            <select class="form-select" id="roi-timeframe">
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly" selected>Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+            <p class="form-hint">Select the period your investment and revenue cover</p>
+          </div>
+
+          <div style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--border-color);">
+            <h3 style="font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-6);">Your Results</h3>
+
+            <div class="grid-2">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+                <div style="background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); text-align: center;">
+                  <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">Profit</div>
+                  <div style="font-size: var(--text-2xl); font-weight: 800; color: var(--text-primary); font-family: var(--font-mono);" id="roi-result-profit">$0</div>
+                </div>
+                <div style="background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); text-align: center;">
+                  <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">ROI</div>
+                  <div style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); font-family: var(--font-mono);" id="roi-result-roi">0%</div>
+                </div>
+                <div style="background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); text-align: center;">
+                  <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">Multiplier</div>
+                  <div style="font-size: var(--text-2xl); font-weight: 800; color: var(--text-primary); font-family: var(--font-mono);" id="roi-result-multiplier">0x</div>
+                </div>
+                <div style="background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); text-align: center;">
+                  <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">Yearly ROI</div>
+                  <div style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); font-family: var(--font-mono);" id="roi-result-yearly">0%</div>
+                </div>
+              </div>
+
+              <div class="calc-result-box" style="background: linear-gradient(135deg, #14b8a6 0%, #0ea5e9 100%);">
+                <div class="calc-result-label">Investment Health</div>
+                <div class="calc-result-value" id="roi-health" style="font-size: var(--text-2xl);">✓ Profitable</div>
+                <div class="calc-result-sub">Every $1 returns $1.60</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-sidebar">
+          <div class="calc-sidebar-card reveal reveal-delay-1">
+            <h4 class="calc-sidebar-title">💡 AI Insights</h4>
+            <div id="roi-insights">
+              <div class="skeleton" style="height: 60px; margin-bottom: 12px;"></div>
+              <div class="skeleton" style="height: 60px; margin-bottom: 12px;"></div>
+            </div>
+          </div>
+
+          <div class="calc-sidebar-card reveal reveal-delay-2">
+            <h4 class="calc-sidebar-title">📊 ROI Benchmarks</h4>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">SaaS Marketing</span>
+                <span class="benchmark-value">300%+</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 100%; background: var(--gradient-hero);"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">E-commerce Ads</span>
+                <span class="benchmark-value">200-400%</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 80%; background: #8b5cf6;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Content Marketing</span>
+                <span class="benchmark-value">150-300%</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 60%; background: #6366f1;"></div></div>
+            </div>
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <span class="benchmark-label">Social Media Ads</span>
+                <span class="benchmark-value">100-250%</span>
+              </div>
+              <div class="benchmark-bar"><div class="benchmark-bar-fill" style="width: 50%; background: #0ea5e9;"></div></div>
+            </div>
+          </div>
+
+          <div class="calc-sidebar-card reveal reveal-delay-3">
+            <h4 class="calc-sidebar-title">🎯 ROI Formula</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--leading-relaxed);">
+              <code style="background: var(--bg-tertiary); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 12px;">ROI = (Revenue - Investment) / Investment × 100</code><br><br>
+              A healthy ROI varies by industry:<br>
+              • SaaS: 300%+<br>
+              • E-commerce: 200-400%<br>
+              • Content: 150-300%<br>
+              • Services: 100-250%
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p class="footer-copyright">© 2025 Internet Money OS. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

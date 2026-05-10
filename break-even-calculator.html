@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Break-Even Calculator — Internet Money OS</title>
+  <meta name="description" content="Calculate your break-even point and contribution margin. Determine how many units you need to sell to cover all costs and start making profit.">
+  <meta name="keywords" content="break even calculator, contribution margin, break even analysis, unit economics calculator">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+  <script src="../assets/js/calculators.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" role="navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <div class="nav-logo-icon">💰</div>
+        <span>Internet Money OS</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="benchmarks.html" class="nav-link">Benchmarks</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" role="dialog">
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="calculators.html" class="mobile-nav-link">Calculators</a>
+    <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+    <a href="benchmarks.html" class="mobile-nav-link">Benchmarks</a>
+  </div>
+
+  <header class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="container">
+      <div class="page-header-content reveal">
+        <div style="display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); background: var(--bg-glass); border: 1px solid var(--bg-glass-border); border-radius: var(--radius-full); font-size: var(--text-sm); color: var(--color-primary); margin-bottom: var(--space-4);">
+          <span>📉</span> Unit Economics Tool
+        </div>
+        <h1 class="page-header-title">Break-Even Calculator</h1>
+        <p class="page-header-desc">Find your break-even point and contribution margin. Know exactly how many units you need to sell to start making profit.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top: var(--space-8);">
+    <div class="container">
+      <div class="calc-layout">
+        <div class="calc-main reveal">
+          <h2 style="font-size: var(--text-xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-6);">Enter Your Metrics</h2>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Fixed Costs ($/month)</span>
+              <span class="calc-slider-value" id="be-fixed-display">$5,000</span>
+            </div>
+            <input type="range" class="calc-slider" id="be-fixed" min="0" max="100000" value="5000" step="100">
+            <p class="form-hint">Rent, salaries, insurance, software — costs that don't change with volume</p>
+          </div>
+
+          <div class="grid-2" style="margin-top: var(--space-6);">
+            <div class="calc-slider-group">
+              <div class="calc-slider-label">
+                <span>Variable Cost/Unit ($)</span>
+                <span class="calc-slider-value" id="be-variable-display">$15</span>
+              </div>
+              <input type="range" class="calc-slider" id="be-variable" min="1" max="500" value="15" step="1">
+              <p class="form-hint">Materials, shipping, packaging per unit</p>
+            </div>
+
+            <div class="calc-slider-group">
+              <div class="calc-slider-label">
+                <span>Selling Price/Unit ($)</span>
+                <span class="calc-slider-value" id="be-price-display">$45</span>
+              </div>
+              <input type="range" class="calc-slider" id="be-price" min="5" max="1000" value="45" step="1">
+              <p class="form-hint">What customers pay per unit</p>
+            </div>
+          </div>
+
+          <div style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--border-color);">
+            <h3 style="font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-6);">Your Results</h3>
+
+            <div class="grid-2">
+              <div class="calc-result-box" style="background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);">
+                <div class="calc-result-label">Break-Even Units</div>
+                <div class="calc-result-value" id="be-result-units">0 units</div>
+                <div class="calc-result-sub">Units needed to cover all costs</div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-4);">
+                <div style="background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); text-align: center;">
+                  <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">Break-Even Revenue</div>
+                  <div style="font-size: var(--text-2xl); font-weight: 800; color: var(--text-primary); font-family: var(--font-mono);" id="be-result-revenue">$0</div>
+                </div>
+                <div style="background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); text-align: center;">
+                  <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">Contribution Margin</div>
+                  <div style="font-size: var(--text-2xl); font-weight: 800; color: var(--text-primary); font-family: var(--font-mono);" id="be-result-margin">$0</div>
+                </div>
+                <div style="background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); text-align: center;">
+                  <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">Margin Ratio</div>
+                  <div style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); font-family: var(--font-mono);" id="be-result-ratio">0%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: var(--space-8);">
+            <h3 style="font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-4);">Profit at Different Volumes</h3>
+            <div class="card" style="padding: var(--space-6);">
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--space-4); text-align: center; margin-bottom: var(--space-4);">
+                <div style="font-size: var(--text-xs); font-weight: 700; color: var(--text-tertiary); text-transform: uppercase;">Units Sold</div>
+                <div style="font-size: var(--text-xs); font-weight: 700; color: var(--text-tertiary); text-transform: uppercase;">Revenue</div>
+                <div style="font-size: var(--text-xs); font-weight: 700; color: var(--text-tertiary); text-transform: uppercase;">Total Costs</div>
+                <div style="font-size: var(--text-xs); font-weight: 700; color: var(--text-tertiary); text-transform: uppercase;">Profit</div>
+              </div>
+              <div id="be-scenarios">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-sidebar">
+          <div class="calc-sidebar-card reveal reveal-delay-1">
+            <h4 class="calc-sidebar-title">💡 AI Insights</h4>
+            <div id="be-insights">
+              <div class="skeleton" style="height: 60px; margin-bottom: 12px;"></div>
+              <div class="skeleton" style="height: 60px; margin-bottom: 12px;"></div>
+            </div>
+          </div>
+
+          <div class="calc-sidebar-card reveal reveal-delay-2">
+            <h4 class="calc-sidebar-title">📊 Break-Even Formula</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--leading-relaxed);">
+              <code style="background: var(--bg-tertiary); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 12px;">BE = Fixed Costs / (Price - Variable Cost)</code><br><br>
+              <strong style="color: var(--text-primary);">Contribution Margin</strong> = Price - Variable Cost<br>
+              This is the amount each unit contributes toward covering fixed costs.<br><br>
+              <strong style="color: var(--text-primary);">Margin Ratio</strong> = CM / Price × 100<br>
+              Shows what percentage of each sale is profit after variable costs.
+            </p>
+          </div>
+
+          <div class="calc-sidebar-card reveal reveal-delay-3">
+            <h4 class="calc-sidebar-title">🎯 Strategies to Lower Break-Even</h4>
+            <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+              <div style="font-size: var(--text-sm); color: var(--text-secondary); padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-lg);">
+                <strong style="color: var(--text-primary);">1. Reduce fixed costs</strong><br>
+                Negotiate rent, use shared workspaces, automate processes to cut overhead.
+              </div>
+              <div style="font-size: var(--text-sm); color: var(--text-secondary); padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-lg);">
+                <strong style="color: var(--text-primary);">2. Lower variable costs</strong><br>
+                Bulk purchasing, better supplier terms, or manufacturing improvements.
+              </div>
+              <div style="font-size: var(--text-sm); color: var(--text-secondary); padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-lg);">
+                <strong style="color: var(--text-primary);">3. Increase price</strong><br>
+                Premium positioning can increase contribution margin without losing significant volume.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p class="footer-copyright">© 2025 Internet Money OS. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Break-even scenario table population
+    document.addEventListener('DOMContentLoaded', function() {
+      const scenariosContainer = document.getElementById('be-scenarios');
+      if (!scenariosContainer) return;
+
+      function updateScenarios() {
+        const fixed = parseFloat(document.getElementById('be-fixed').value) || 5000;
+        const variable = parseFloat(document.getElementById('be-variable').value) || 15;
+        const price = parseFloat(document.getElementById('be-price').value) || 45;
+
+        const beUnits = price > variable ? fixed / (price - variable) : 0;
+        const volumes = [
+          Math.max(1, Math.round(beUnits * 0.5)),
+          Math.max(1, Math.round(beUnits)),
+          Math.max(1, Math.round(beUnits * 1.5)),
+          Math.max(1, Math.round(beUnits * 2)),
+          Math.max(1, Math.round(beUnits * 3))
+        ];
+
+        scenariosContainer.innerHTML = volumes.map(v => {
+          const revenue = v * price;
+          const costs = fixed + (v * variable);
+          const profit = revenue - costs;
+          const isBe = Math.abs(v - beUnits) < 1;
+          return `
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--space-4); text-align: center; padding: var(--space-3) 0; border-top: 1px solid var(--border-color); ${isBe ? 'background: rgba(99, 102, 241, 0.05);' : ''}">
+              <div style="font-weight: ${isBe ? '700' : '400'}; color: ${isBe ? 'var(--color-primary)' : 'var(--text-primary)'};">${v.toLocaleString()}</div>
+              <div style="font-family: var(--font-mono); color: var(--text-secondary);">$${revenue.toLocaleString()}</div>
+              <div style="font-family: var(--font-mono); color: var(--text-secondary);">$${costs.toLocaleString()}</div>
+              <div style="font-family: var(--font-mono); font-weight: 700; color: ${profit >= 0 ? 'var(--color-success)' : 'var(--color-danger)'};">$${profit.toLocaleString()}</div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      ['be-fixed', 'be-variable', 'be-price'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', updateScenarios);
+      });
+
+      setTimeout(updateScenarios, 500);
+    });
+  </script>
+
+</body>
+</html>
